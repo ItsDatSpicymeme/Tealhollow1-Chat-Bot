@@ -48,12 +48,11 @@ async function sleep(ms) {
 
 client.connect();
 
-/*client.on('message', (channel, tags, message, self) => {
-	console.log(channel);
+client.on('message', (channel, tags, message, self) => {
 	if (self) return true;
 		gam += 1;
 
-		if (gam >= 36) {
+		if (gam >= 42) {
 			const { username } = tags;
 			if (username === 'streamelements') {
 				client.say(channel, `!gamble ${Math.trunc((message.substr(40, message.indexOf("Coins", 40) - 40)) / 25)}`);
@@ -61,7 +60,7 @@ client.connect();
 				gam = 0;
 			} else client.say(channel, `!coins`);
 		} 
-});*/
+});
 
 
 	client.on('message', async function (channel, tags, message, self) {
@@ -101,7 +100,7 @@ client.on('message', async function(channel, tags, message, self) {
 client.on('message', async function(channel, tags, message, self) {
 	if(self) return true;
 
-	rum = Math.trunc(Math.random() * (74));
+	rum = Math.trunc(Math.random() * (153));
 	
 	if (rum == 1 && !message.startsWith('!gamble') && !message.startsWith('!slots') && !message.startsWith('!gift') && !message.startsWith('!roulette') && !message.startsWith('!give') && !message.startsWith('!redeem')) {
 		client.say(channel, `${message}`);
@@ -115,18 +114,10 @@ client.on('message', async function(channel, tags, message, self) {
 	else if (rum == 29) {
 		client.say(channel, `!ranum`);
 	}
-	else if (rum >= 60 && rum <= 62) {
-		if (res.at(0) === '"' && res.at(res.length - 1) === '"') client.say(channel, res.slice(1, (res.length - 1)));
-			else client.say(channel, `${res}`);
-
-			resp(prmpt);
-			await sleep(3000);
-	}
-	else if (rum >= 66) {
+	else if (rum >= 150) {
 		await resp(message)
 		client.say(channel, `${res}`);
 		await sleep(3000);
 	}
 });
-console.log(res);
 })();
